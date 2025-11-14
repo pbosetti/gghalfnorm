@@ -42,19 +42,19 @@ gghalfnorm <- function(x, nlab = 2, labs = as.character(seq_along(x)),
   if (nlab < n) {
     p <- p +
       geom_point(data = data[1:(n - nlab), ],
-                 aes_string(x = "x", y = "y"))
+                 aes(x = x, y = y))
   }
   p <- if (repel) {
     p +
       geom_point(data = data[(n - nlab + 1):n, ],
-                 aes_string(x = "x", y = "y")) +
+                 aes(x = x, y = y)) +
       geom_text_repel(data = data[(n - nlab + 1):n, ],
-                      aes_string(x = "x", y = "y", label = "label"),
+                      aes(x = x, y = y, label = label),
                       ...)
   } else {
     p +
       geom_text(data = data[(n - nlab + 1):n, ],
-                aes_string(x = "x", y = "y", label = "label"))
+                aes(x = x, y = y, label = label))
   }
   if (length(slope) != 0) {
     p <- p +
